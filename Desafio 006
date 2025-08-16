@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversos de Temperaturas</title>
+</head>
+<body>
+    <h1>Conversor de temperaturas</h1>
+    <input type="button" value="Converter" onclick="conversor()">
+    <p>Clique no botão acima para iniciar</p>
+    <p id="res"></p>
+
+    <script>
+        function conversor () {
+            var temperatura = window.prompt('Digite uma temperatura em °C(Celsius)')
+            if (!isNaN(Number(temperatura))) {
+                var c = Number(temperatura)
+                var res = document.getElementById('res')
+                var f = fahrenheit(c)
+                var k = kelvin(c)
+                res.innerHTML = `<h1> A temperatura de ${c}, corresponde a...`
+                res.innerHTML += `<p>${k} °K (Kelvin) </p>`
+                res.innerHTML += `<p>${f} °F (Fahrenheit) </p>`    
+            }else {
+                window.alert('Por favor, insira um valor númerico!')
+            }
+ }
+    function fahrenheit (n) {
+        var f = (n*9/5) +32 
+        return f
+    }
+
+    function kelvin (n) {
+        var k = n + 273.15
+        return k
+    }
+    
+    </script>
+</body>
+</html>
