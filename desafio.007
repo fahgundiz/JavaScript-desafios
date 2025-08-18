@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor R$ -> US$</title>
+</head>
+<body>
+<h1>Conversor R$ -> US$ </h1>
+<p><input type="button" value="Converter" onclick="conversor()"></p>
+<p>Clique no botão acima para iniciar.</p>
+<p id="res">Resposta</p>
+    <script>
+        var cotacao = window.prompt(`Antes de mais nada. Quanto está a cotação do dólar agora?`)
+        if (!isNaN(Number(cotacao))) {
+        var c = Number(cotacao)
+        function conversor() {
+        var res = document.getElementById('res')
+        var reais = window.prompt(`Quantos R$ você tem na carteira? `)
+        var r = Number(reais)
+        var d = r/c 
+        const dolar = d.toFixed(2)  
+        res.innerHTML = `Você pode comprar ${dolar} US$ com ${r} R$ na carteira, considerando a cotação ${c}`
+        }    
+        } else {
+            window.alert('Por favor, insira um número válido.')
+            location.reload();
+        }
+       
+        
+    </script>
+</body>
+</html>
