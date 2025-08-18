@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cálculo de Desconto</title>
+</head>
+<body>
+    <header>
+        <h1>Calcular Desconto</h1>    
+    </header>
+    <div>
+        <p> <input type="button" value="Desconto de 10%" onclick="desconto()"> </p>
+        <p>Clique no botão acima para iniciar.</p>
+    </div>
+    <div id="res">
+        
+    </div> 
+    <script>
+        function desconto () {
+            var prod = window.prompt(`Qual é o produto que você está comprando?`)
+            if (isNaN(prod) && prod.length != 0) {
+                var preço = window.prompt(`Qual é o preço de ${prod}?`)
+                if (!isNaN(Number(preço)) && Number(preço.length)!= 0) {
+                var p = Number(preço)
+                var res = document.getElementById('res')
+                var d = 10/100*p
+                var p2 = p - d
+                res.innerHTML = `<h1>Calculando desconto de 10% para ${prod}</h1>`
+                res.innerHTML += `<p>O preço original era ${preço}</p>`
+                res.innerHTML += `<p>Você acabar de ganhar R$ ${d.toFixed(2)} de desconto (-10%)</p>`
+                res.innerHTML += `<p>No fim, você vai pagar R$ ${p2.toFixed(2)} </p>`    
+            } else {
+                window.alert('[ERRO], Por favor insira um valor válido!')
+                location.reload()
+            }    
+            }
+                else {
+                    window.alert('Digite um nome válido!')
+                    location.reload()
+                }
+            
+            
+
+        }
+    </script>  
+</body>
+</html>
