@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reajustar Salário</title>
+</head>
+<body>
+<header>
+    <h1>Reajuste Salarial</h1>
+</header>
+<div>
+<p> <input type="button" value="Reajustar Salário" onclick="reajustar()"></p>
+<p>Clique no botão acima para iniciar.</p>
+</div>
+<div id="res">
+    
+</div> 
+<script>
+    function reajustar () {
+        var nome = window.prompt(`Qual é o nome do funcionário?`)
+        var res = document.getElementById('res')
+        if (isNaN(nome) && nome.length != 0) {
+            var salario = window.prompt(`Qual é o salário de ${nome}?`)
+            if (!isNaN(Number(salario)) && salario.length !=0) {
+                var sal = Number(salario)
+                var porcentagem = window.prompt(`O salário de ${nome} vai ser reajustado em qual porcentagem?`)
+                if (!isNaN(Number(porcentagem)) && porcentagem.length != 0) {
+                    var p = Number(porcentagem)
+                    var aumento = sal*(p/100)
+                    var nsal = sal + aumento
+                    res.innerHTML = `<h1>${nome} recebeu um aumento salarial!</h1>`
+                    res.innerHTML += `<p>O salário atual era R$ ${sal}.</p>`
+                    res.innerHTML += `<p>Com um aumento de ${p}%, o salário vai aumentar R$ ${aumento} no próximo mês.</p>`
+                    res.innerHTML += `<p>E a partir daí, ${nome} vai passar a ganhar R$ ${nsal}.</p>`
+                } else {
+                    window.alert('[ERRO!], valor inválido. Digite novamente!')
+                    location.reload()    
+                }
+            } else {
+                window.alert('[ERRO!], valor inválido. Digite novamente!')
+                location.reload()    
+            }   
+        } else {
+            window.alert('[ERRO!], valor inválido. Digite novamente!')
+            location.reload()
+        }
+}
+</script> 
+</body>
+</html>
