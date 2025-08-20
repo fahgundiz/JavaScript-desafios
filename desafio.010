@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fórmula de Bhaskara</title>
+</head>
+<body>
+<header>
+    <h1>Resolvendo Bhaskara</h1>
+</header>    
+<div>
+<p> <input type="button" value="Calcular" onclick="calcular()"></p>
+<p>Considerando uma equação no formato <b>a</b>x<sup>2</sup> + <b>b</b>x + <b>c</b> = 0, aperte o botão acima para calcular o valor de &Delta;.</p>
+</div>
+<div id="res">
+
+</div>
+<script>
+    function calcular () {
+        var a1 = window.prompt(`Qual é o valor de a?`)
+        var res = document.getElementById('res')
+        if (!isNaN(Number(a1)) && a1.length != 0) {
+            var a = Number(a1)
+            var b1 = window.prompt(`Qual é o valor de b?`)
+            if (!isNaN(Number(b1)) && b1.length != 0) {
+                var b = Number(b1)
+                var c1 = window.prompt(`Qual é o valor de c?`)
+                if (!isNaN(Number(c1)) && c1.length != 0) {
+                    var c = Number(c1)
+                    var delta = (b*b) - (4*a*c)
+                    res.innerHTML = `<h1>Resolvendo Bhaskara</h1>`
+                    res.innerHTML += `<p>A equação atual é <b>${a}x<sup>2</sup> + ${b}x + ${c} = 0</b></p>`
+                    res.innerHTML += `<p>O cálculo realizado será <b>&Delta; = ${b}<sup>2</sup> - 4.${a}.${c}</b>  </p>`
+                    res.innerHTML += `<p>O valor calculado foi <mark><b>&Delta; = ${delta}</b></mark> </p>`
+                    
+                } else {
+                    window.alert(`[ERRO]. Valor inválido, tente novamente!`)    
+                }
+            } else {
+                window.alert(`[ERRO]. Valor inválido, tente novamente!`)    
+            }
+        } else {
+            window.alert(`[ERRO]. Valor inválido, tente novamente!`)
+        }
+    }
+</script>
+</body>
+</html>
