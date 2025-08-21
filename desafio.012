@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>preço mudou</title>
+</head>
+<body>
+<header>
+    <h1>Preço mudou</h1>
+</header>    
+<div>
+<p><input type="button" value="Verificar" onclick="verificar()"></p>
+<p>Clique no botão acima para analisar a mudança de preço</p>
+</div>
+<div id="res">
+    resposta
+</div>
+<script>
+    function verificar() {
+        var preçoi = window.prompt('Qual era o preço anterior do produto')
+        var res = document.getElementById('res')
+        if (!isNaN(Number(preçoi)) && preçoi.length !=0) {
+            var pi = Number(preçoi)
+            var preçof = window.prompt('Qual é o preço atual do produto?')
+            if (!isNaN(Number(preçof)) && preçof.length != 0) {
+                var pf = Number(preçof)
+                res.innerHTML = `<p>O produto custava R$ ${pi} e agora custa R$ ${pf} </p>`
+                var d = Math.abs(pi - pf)
+                var variação = Math.abs((100*d)/pi)
+                if (pi > pf ) {
+                    res.innerHTML += `<p>Hoje, o produto está mais barato</p>`
+                    res.innerHTML += `<p>O preço caiu R$ ${d} em relação ao preço anterior</p>` 
+                    res.innerHTML += `<p>Uma variação de ${variação}% pra baixo </p>`
+                } else if (pi == pf){
+                    res.innerHTML += `<p>Hoje, o produto está igual</p>`
+                    res.innerHTML += `<p>O preço caiu R$ ${d} em relação ao preço anterior</p>` 
+                    res.innerHTML += `<p>Uma variação de ${variação} % </p>`
+                } else {
+                    res.innerHTML += `<p>Hoje, o produto está mais caro</p>`
+                    res.innerHTML += `<p>O preço subiu R$ ${d} em relação ao preço anterior</p>` 
+                    res.innerHTML += `<p>Uma variação de ${variação}% pra cima</p>`
+                }
+                
+            }else {
+                window.alert('[ERRO].Por favor, insira um valor númerico.')                
+            }
+        } else {
+            window.alert('[ERRO].Por favor, insira um valor númerico.')
+        }
+    }
+</script>
+</body>
+</html>
